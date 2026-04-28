@@ -40,7 +40,7 @@ const OFFSET_STEP  = 8    // px pushed down per card stacked on top
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] tracking-widest font-sans text-black/40 bg-black/[0.04]">
+    <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] tracking-widest font-sans text-white/50 bg-white/[0.08]">
       {children}
     </span>
   )
@@ -96,7 +96,7 @@ export function StackingAgentCards() {
                 willChange:     "transform",
               }}
             >
-              <div className="group relative bg-[#faf9f7] rounded-2xl border border-black/[0.07] overflow-hidden cursor-pointer">
+              <div className="group relative bg-card rounded-2xl border border-border overflow-hidden cursor-pointer">
 
                 {/* ── MOBILE: image top, fades out at bottom ── */}
                 {agent.img && (
@@ -124,7 +124,7 @@ export function StackingAgentCards() {
                     <div
                       className="absolute inset-0"
                       style={{
-                        background: "linear-gradient(to right, #faf9f7 0%, transparent 55%)",
+                        background: "linear-gradient(to right, hsl(0 0% 9%) 0%, transparent 55%)",
                       }}
                     />
                   </div>
@@ -140,14 +140,14 @@ export function StackingAgentCards() {
                     <div className="flex items-start justify-between mb-6">
                       <Tag>{agent.label}</Tag>
                     </div>
-                    <h3 className="text-xl font-light mb-3">{agent.title}</h3>
-                    <p className="text-sm text-black/45 leading-relaxed mb-8">{agent.desc}</p>
+                    <h3 className="text-xl font-light mb-3 text-foreground">{agent.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-8">{agent.desc}</p>
                   </div>
-                  <div className="flex gap-8 pt-6 border-t border-black/[0.06]">
+                  <div className="flex gap-8 pt-6 border-t border-border">
                     {agent.stats.map(s => (
                       <div key={s.l}>
-                        <div className="text-2xl font-light">{s.v}</div>
-                        <div className="text-[11px] text-black/35 tracking-widest mt-0.5">{s.l}</div>
+                        <div className="text-2xl font-light text-foreground">{s.v}</div>
+                        <div className="text-[11px] text-muted-foreground tracking-widest mt-0.5">{s.l}</div>
                       </div>
                     ))}
                   </div>
