@@ -10,7 +10,7 @@ type IconType = "platform" | "agents" | "workflow" | "integrations" | "pricing"
 interface PixelIconProps {
   type: IconType
   size?: number  // rendered px size (default 40)
-  dark?: boolean // use light colors for dark backgrounds (default true for dark theme)
+  dark?: boolean // use light colors for dark backgrounds
 }
 
 // ── Platform icon: rotating gear / node graph ────────────────────────────────
@@ -237,7 +237,7 @@ function drawPricing(ctx: CanvasRenderingContext2D, W: number, t: number, dark =
 }
 
 // ── Canvas wrapper ────────────────────────────────────────────────────────────
-export function PixelIcon({ type, size = 40, dark = true }: PixelIconProps) {
+export function PixelIcon({ type, size = 40, dark = false }: PixelIconProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const rafRef    = useRef<number>(0)
 
